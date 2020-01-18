@@ -5,6 +5,8 @@
 
 // fs.appendFileSync("notes.txt", "\nHi I am the appended info!!!!");
 
+// ********************************
+
 // const utils =
 // const add = require("./utils.js");
 
@@ -16,7 +18,13 @@
 
 // console.log(sum);
 
+// ****************************
+
+const validator = require("validator");
+// import validator from "validator";
 const getNotes = require("./notes.js");
 const msg = getNotes();
 
 console.log(msg);
+console.log(validator.isEmail("mobrien@lol.edu"));
+console.log(validator.isURL("twitch.tv"));
