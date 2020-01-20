@@ -19,6 +19,7 @@
 // console.log(sum);
 
 // ****************************
+const chalk = require("chalk");
 
 const validator = require("validator");
 // import validator from "validator";
@@ -28,3 +29,4 @@ const msg = getNotes();
 console.log(msg);
 console.log(validator.isEmail("mobrien@lol.edu"));
 console.log(validator.isURL("twitch.tv"));
+console.log(chalk.bgRgb(15, 100, 50).bold.underline.inverse("Success!!"));
