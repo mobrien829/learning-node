@@ -23,7 +23,9 @@ yargs.command({
       type: "string"
     }
   },
-  handler: argv => notes.addNote(argv.title, argv.body)
+  handler() {
+    notes.addNote(argv.title, argv.body);
+  }
 });
 
 // Remove
@@ -38,7 +40,9 @@ yargs.command({
       type: "string"
     }
   },
-  handler: argv => notes.removeNote(argv.title)
+  handler() {
+    notes.removeNote(argv.title);
+  }
 });
 
 // Read
@@ -46,7 +50,9 @@ yargs.command({
 yargs.command({
   command: "read",
   describe: "read a note",
-  handler: () => console.log(chalk.blue("Reading the note"))
+  handler() {
+    console.log(chalk.blue("Reading the note"));
+  }
 });
 
 // List
@@ -54,7 +60,9 @@ yargs.command({
 yargs.command({
   command: "list",
   describe: "lists all notes",
-  handler: () => console.log(chalk.rgb(10, 250, 200)("Listing all notes"))
+  handler() {
+    console.log(chalk.rgb(10, 250, 200)("Listing all notes"));
+  }
 });
 
 yargs.parse();
