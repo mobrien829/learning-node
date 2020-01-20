@@ -20,13 +20,34 @@
 
 // ****************************
 const chalk = require("chalk");
-
+// import chalk from "chalk";
 const validator = require("validator");
 // import validator from "validator";
+const yargs = require("yargs");
 const getNotes = require("./notes.js");
 const msg = getNotes();
 
-console.log(msg);
-console.log(validator.isEmail("mobrien@lol.edu"));
-console.log(validator.isURL("twitch.tv"));
-console.log(chalk.bgRgb(15, 100, 50).bold.underline.inverse("Success!!"));
+// console.log(msg);
+// console.log(validator.isEmail("mobrien@lol.edu"));
+// console.log(validator.isURL("twitch.tv"));
+
+// *****************************
+
+// console.log(chalk.bgRgb(15, 200, 50).bold.underline.inverse("Success!!"));
+
+// *******************************
+
+const command = process.argv[2];
+
+// if (command === "add") {
+//   console.log(chalk.green("adding note"));
+// } else if (command === "remove") {
+//   console.log(chalk.red("removing note"));
+// }
+
+// below line customizes yargs version if you dont want 1.0.0
+yargs.version("1.1.0");
+
+// Create add command with yargs
+
+console.log(yargs.argv);
