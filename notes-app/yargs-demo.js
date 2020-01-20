@@ -8,7 +8,28 @@ yargs.version = "1.1.0";
 yargs.command({
   command: "add",
   describe: "adds a new note",
-  handler: () => console.log(chalk.rgb(150, 50, 200)("Adding new note"))
+  //   builders are objects that hold options for a command
+  builder: {
+    title: {
+      describe: "title of note",
+      demandOption: true,
+      type: "string"
+      //   demandOption is like :requires in Rails, it determines if option is required for valid input
+    },
+    body: {
+      describe: "contents of note",
+      demandOption: true,
+      type: "string"
+    }
+  },
+  handler: argv =>
+    console.log(
+      chalk.rgb(
+        150,
+        50,
+        200
+      )(`Title: ${argv.title} \n${chalk.red(`Body: ${argv.body}`)}`)
+    )
 });
 
 // Remove
@@ -35,4 +56,7 @@ yargs.command({
   handler: () => console.log(chalk.rgb(10, 250, 200)("Listing all notes"))
 });
 
-console.log(yargs.argv);
+yargs.parse();
+// prints it out without doubling the way console.log(yargs.argv) does
+
+// console.log(yargs.argv);
