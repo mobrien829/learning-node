@@ -21,14 +21,14 @@ request({ url: darkSkyURL, json: true }, (error, response) => {
   }
 });
 
-request({ url: mapBoxURL, json: true }, (error, response) => {
-  if (error) {
-    console.log("Unable to connect to location services");
-  } else if (response.body.features.length === 0) {
-    console.log("Location not found");
-  } else {
-    const latitude = response.body.features[0].center[1];
-    const longitude = response.body.features[0].center[0];
-    console.log(latitude, longitude);
-  }
-});
+// request({ url: mapBoxURL, json: true }, (error, response) => {
+//   if (error) {
+//     console.log("Unable to connect to location services");
+//   } else if (response.body.features[0].length === 0) {
+//     console.log("Location not found");
+//   } else {
+//     const latitude = response.body.features[0].center[1];
+//     const longitude = response.body.features[0].center[0];
+//     console.log(latitude, longitude);
+//   }
+// });
