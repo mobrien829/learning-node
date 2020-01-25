@@ -6,14 +6,18 @@ const forecast = require("./utils/forecast.js");
 
 const address = process.argv[2];
 
-geocode(address, (geoError, geoData) => {
-  if (geoError) {
-    return console.log(geoError);
-  }
-  forecast(geoData, (forecastError, forecastData) => {
-    if (forecastError) {
-      return console.log(forecastError);
+if (!address) {
+  return console.log("Please enter a location and try again", undefined);
+} else {
+  geocode(address, (geoError, geoData) => {
+    if (geoError) {
+      return console.log(geoError);
     }
-    console.log(forecastData);
+    forecast(geoData, (forecastError, forecastData) => {
+      if (forecastError) {
+        return console.log(forecastError);
+      }
+      console.log(forecastData);
+    });
   });
-});
+}
