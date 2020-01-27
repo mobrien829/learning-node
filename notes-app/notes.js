@@ -1,5 +1,6 @@
 const fs = require("fs");
 const chalk = require("chalk");
+const APIKey = require("../api_keys.js");
 
 const loadNotes = () => {
   try {
